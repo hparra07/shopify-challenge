@@ -1,1 +1,0 @@
-# product-cards-challenge
