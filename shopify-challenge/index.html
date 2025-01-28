@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best Sellers</title>
 
-    <!-- Tailwind (desde CDN). Puedes usar la versión que prefieras -->
+    <!-- Tailwind CDN -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-    <!-- Tu CSS (para scrollbar y ajustes) -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="bg-gray-100">
@@ -21,37 +21,93 @@
 
     <main class="p-4 px-10 md:px-20">
       <!-- 
-      CONTAINER que cambia de layout:
-        - En mobile: grid de 2 col, overflow normal.
-        - En desktop: flex con scroll horizontal.
-     -->
+      CONTAINER dynamic layout:
+        - mobile: grid 2 col, normal overflow.
+        - desktop: flex with horizontal scroll.
+      -->
       <div
         id="product-container"
         class="grid grid-cols-2 gap-4 scroll-container md:flex md:flex-nowrap md:overflow-x-auto md:gap-4 md:pb-10 md:pt-5"
       >
-        <!-- TARJETAS 1-4: SIEMPRE visibles -->
 
-        <div
-          class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
-        >
-          <div class="group relative overflow-hidden">
-            <img
-              src="./assets/img/img-1.jpg"
-              class="w-full transition-opacity duration-300"
-            />
-            <img
-              src="./assets/img/img-2.jpg"
-              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
-            />
+      <!-- CARDS 1-4: -->
+      <div class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative">
+
+        <!-- Container with image for hover -->
+        <div class="group relative overflow-hidden">
+      
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+            <span class="absolute top-2 right-2 z-10 text-xs font-bold uppercase bg-red-200 text-red-800 px-2 py-1 rounded-full">Sale</span>
           </div>
-          <h2 class="font-bold mt-2">Product 1</h2>
-          <p class="text-gray-500">$20.00</p>
+      
+          <!-- Main Image  -->
+          <img
+            src="./assets/img/img-1.jpg"
+            alt="Main product image"
+            class="w-full transition-opacity duration-300"
+          />
+          <!-- Hover Image -->
+          <img
+            src="./assets/img/img-2.jpg"
+            alt="Hover product image"
+            class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+          />
         </div>
+      
+        <!-- Product title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 1
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="none", stroke="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
+      </div>
+      
 
         <div
           class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+          </div>
+
             <img
               src="./assets/img/img-3.jpg"
               class="w-full transition-opacity duration-300"
@@ -61,14 +117,61 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 2</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 2
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+            <span class="absolute top-2 right-2 z-10 text-xs font-bold uppercase bg-red-200 text-red-800 px-2 py-1 rounded-full">Sale</span>
+          </div>
             <img
               src="./assets/img/img-5.jpg"
               class="w-full transition-opacity duration-300"
@@ -78,14 +181,59 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 3</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 3
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+          </div>
             <img
               src="./assets/img/img-7.jpg"
               class="w-full transition-opacity duration-300"
@@ -95,16 +243,63 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 4</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 4
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
-        <!-- TARJETAS 5-10: en móvil, ocultas por defecto. En desktop, siempre visibles. -->
-        <!-- "hidden md:block" = se ocultan en mobile, se muestran en desktop -->
+        <!-- Cards 5-10: en móvil. -->
+        <!-- "hidden md:block" = hide in mobile, show in desktop -->
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+            <span class="absolute top-2 right-2 z-10 text-xs font-bold uppercase bg-red-200 text-red-800 px-2 py-1 rounded-full">Sale</span>
+          </div>
             <img
               src="./assets/img/img-9.jpg"
               class="w-full transition-opacity duration-300"
@@ -114,14 +309,60 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 5</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 5
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+          </div>
             <img
               src="./assets/img/img-3.jpg"
               class="w-full transition-opacity duration-300"
@@ -131,14 +372,60 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 6</h2>
-          <p class="text-gray-500">$20.00</p>
+                  <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 6
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+          </div>
             <img
               src="./assets/img/img-10.jpg"
               class="w-full transition-opacity duration-300"
@@ -148,14 +435,61 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 7</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 7
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+            <span class="absolute top-2 right-2 z-10 text-xs font-bold uppercase bg-red-200 text-red-800 px-2 py-1 rounded-full">Sale</span>
+          </div>
             <img
               src="./assets/img/img-5.jpg"
               class="w-full transition-opacity duration-300"
@@ -165,14 +499,60 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 8</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 8
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+          </div>
             <img
               src="./assets/img/img-2.jpg"
               class="w-full transition-opacity duration-300"
@@ -182,14 +562,62 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 9</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 9
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
 
         <div
           class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
         >
           <div class="group relative overflow-hidden">
+          <!-- Pills -->
+          <div>
+            
+            <span class="absolute top-2 left-2 z-10 text-xs font-bold uppercase bg-green-200 text-green-800 px-2 py-1 rounded-full">New</span>
+            <span class="absolute top-2 right-2 z-10 text-xs font-bold uppercase bg-red-200 text-red-800 px-2 py-1 rounded-full">Sale</span>
+          </div>
             <img
               src="./assets/img/img-4.jpg"
               class="w-full transition-opacity duration-300"
@@ -199,12 +627,53 @@
               class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
             />
           </div>
-          <h2 class="font-bold mt-2">Product 10</h2>
-          <p class="text-gray-500">$20.00</p>
+        <!-- Title -->
+        <h2 class="font-bold mt-2 text-sm sm:text-base">
+          Product Name 10
+        </h2>
+      
+        <!-- Vendor -->
+        <p class="text-xs text-gray-500 mt-1">Vendor</p>
+      
+        <!-- Rating + Reviews -->
+        <div class="flex items-center mt-2 text-black-500">
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg"
+          class="w-3 h-3 stars fill-current"
+              viewBox="0 0 20 20"
+              fill="currentColor"><path d="m4.178 20.801 6.758-4.91 6.756 4.91-2.58-7.946 6.758-4.91h-8.352L10.936 0 8.354 7.945H0l6.758 4.91-2.58 7.946z"/>
+          </svg>
+
+      
+      
+          <span class="text-xs text-gray-600 ml-2">(426 Reviews)</span>
+        </div>
+      
+        <!-- Price -->
+        <p class="text-gray-500">$20.00</p>
         </div>
       </div>
 
-      <!-- BOTÓN "Show More" solo visible en móvil -->
+      <!-- "Show More" button, just visible on mobile -->
       <div class="text-center mt-6 md:hidden">
         <button
           id="show-more-btn"
@@ -215,7 +684,7 @@
       </div>
     </main>
 
-    <!-- JS para el toggle de "Show More" en mobile -->
+    <!-- JS -->
     <script src="./assets/js/app.js"></script>
   </body>
 </html>
