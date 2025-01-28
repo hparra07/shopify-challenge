@@ -1,0 +1,18 @@
+/* 
+  Escenario: en desktop, el contenedor se llama .scroll-container
+  para personalizar la barra horizontal con ::-webkit-scrollbar
+*/
+.scroll-container::-webkit-scrollbar {
+  height: 5px; /* Oculto por defecto */
+  background: #ccc;
+}
+
+.scroll-container:hover::-webkit-scrollbar {
+  height: 6px; /* Se muestra al hover */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 9999px;
+}
+

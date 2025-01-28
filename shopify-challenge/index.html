@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Sellers</title>
+
+    <!-- Tailwind (desde CDN). Puedes usar la versión que prefieras -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!-- Tu CSS (para scrollbar y ajustes) -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="bg-gray-100">
+    <header
+      class="flex items-center justify-between p-4 bg-white shadow px-10 md:px-20"
+    >
+      <h1 class="text-xl font-bold">Best Sellers</h1>
+      <button class="text-sm font-medium">Shop all best sellers →</button>
+    </header>
+
+    <main class="p-4 px-10 md:px-20">
+      <!-- 
+      CONTAINER que cambia de layout:
+        - En mobile: grid de 2 col, overflow normal.
+        - En desktop: flex con scroll horizontal.
+     -->
+      <div
+        id="product-container"
+        class="grid grid-cols-2 gap-4 scroll-container md:flex md:flex-nowrap md:overflow-x-auto md:gap-4 md:pb-10 md:pt-5"
+      >
+        <!-- TARJETAS 1-4: SIEMPRE visibles -->
+
+        <div
+          class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-1.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-2.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 1</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-3.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-4.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 2</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-5.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-6.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 3</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="product-card w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-7.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-8.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 4</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <!-- TARJETAS 5-10: en móvil, ocultas por defecto. En desktop, siempre visibles. -->
+        <!-- "hidden md:block" = se ocultan en mobile, se muestran en desktop -->
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-9.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-10.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 5</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-3.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-7.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 6</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-10.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-8.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 7</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-5.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-4.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 8</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-2.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-9.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 9</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+
+        <div
+          class="extra-item hidden md:block w-full md:w-64 flex-none bg-white p-2 rounded shadow relative"
+        >
+          <div class="group relative overflow-hidden">
+            <img
+              src="./assets/img/img-4.jpg"
+              class="w-full transition-opacity duration-300"
+            />
+            <img
+              src="./assets/img/img-7.jpg"
+              class="w-full absolute top-0 left-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hover:cursor-pointer"
+            />
+          </div>
+          <h2 class="font-bold mt-2">Product 10</h2>
+          <p class="text-gray-500">$20.00</p>
+        </div>
+      </div>
+
+      <!-- BOTÓN "Show More" solo visible en móvil -->
+      <div class="text-center mt-6 md:hidden">
+        <button
+          id="show-more-btn"
+          class="bg-black text-white font-semibold py-3 px-4 rounded-full w-full"
+        >
+          Show More
+        </button>
+      </div>
+    </main>
+
+    <!-- JS para el toggle de "Show More" en mobile -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
