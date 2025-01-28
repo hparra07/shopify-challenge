@@ -1,0 +1,31 @@
+/* 
+Scenario: On desktop, the container is called .scroll-container to customize the horizontal scrollbar with ::-webkit-scrollbar.
+*/
+.scroll-container::-webkit-scrollbar {
+  height: 5px;
+  background: #ccc;
+}
+
+.scroll-container:hover::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 9999px;
+}
+
+.fade-in {
+  /* Starts invisible */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-in.show {
+  /*final state: visible */
+  opacity: 1;
+}
+
+.stars{
+  margin-right: 0.1rem;
+}
